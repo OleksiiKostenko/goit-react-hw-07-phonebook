@@ -1,8 +1,9 @@
 import css from 'components/Form.module.css';
 import { useInputContex } from './Context';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, getContacts } from 'redux/contactsSlice';
+import { getContacts } from 'redux/contactsSlice';
 import { nanoid } from '@reduxjs/toolkit';
+import { addContact } from 'redux/operations';
 
 export const Form = () => {
   const { nameValue, addName, numberValue, addNumber } = useInputContex();
@@ -23,7 +24,7 @@ export const Form = () => {
         addContact({
           id: nanoid(),
           name: nameValue,
-          number: numberValue,
+          phone: numberValue,
         })
       )
     );

@@ -1,7 +1,8 @@
 import css from 'components/PhonebookList.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact, getContacts } from 'redux/contactsSlice';
+import { getContacts } from 'redux/contactsSlice';
 import { getFilter } from 'redux/filterSlice';
+import { deleteContact } from 'redux/operations';
 
 export const PhonebookList = () => {
   const distpatch = useDispatch();
@@ -15,10 +16,10 @@ export const PhonebookList = () => {
 
   return (
     <ul className={css.list_item}>
-      {filteredList.map(({ id, name, number }) => (
+      {filteredList.map(({ id, name, phone }) => (
         <li className={css.list_el} key={id}>
           <p className={css.list_title}>
-            {name}:{number}
+            {name}:{phone}
           </p>
           <button
             type="button"
